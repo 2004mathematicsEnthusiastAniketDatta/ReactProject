@@ -1,1 +1,51 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
+
+body {
+    transition: background-color 0.3s ease;
+}
+
+[data-theme=light] body {
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+[data-theme=dark] body {
+    background-color: #10182a;
+    color: #f1f5f9;
+}
+
+/* Additional theme variables */
+@theme {
+    --primary-color: #3b82f6;
+    --primary-color-dark: #2563eb;
+    
+    --text-color-light: #1e293b;
+    --text-color-dark: #f1f5f9;
+    
+    --bg-color-light: #f8fafc;
+    --bg-color-dark: #10182a;
+}
+
+/* Use CSS variables based on theme */
+[data-theme=light] {
+    --text-color: var(--text-color-light);
+    --bg-color: var(--bg-color-light);
+}
+
+[data-theme=dark] {
+    --text-color: var(--text-color-dark);
+    --bg-color: var(--bg-color-dark);
+}
+@theme{
+    --primary-color: #3b82f6;
+    --primary-color-dark: #2563eb;
+    
+    --text-color-light: #1e293b;
+    --text-color-dark: #f1f5f9;
+    
+    --bg-color-light: #f8fafc;
+    --bg-color-dark: #10182a;    
+}
